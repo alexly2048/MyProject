@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaDataProcessUninstaller", "SeaDataProcessUninstaller\SeaDataProcessUninstaller.csproj", "{826E4ACB-FFB8-4B52-AF2E-30BC8050E702}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{826E4ACB-FFB8-4B52-AF2E-30BC8050E702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826E4ACB-FFB8-4B52-AF2E-30BC8050E702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826E4ACB-FFB8-4B52-AF2E-30BC8050E702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826E4ACB-FFB8-4B52-AF2E-30BC8050E702}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E89DBBA9-4C3E-4EDF-8F9C-8826E712A15B}
+	EndGlobalSection
+EndGlobal
