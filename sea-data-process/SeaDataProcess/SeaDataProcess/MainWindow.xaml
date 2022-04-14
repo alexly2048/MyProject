@@ -1,0 +1,56 @@
+﻿<mah:MetroWindow x:Class="SeaDataProcess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeaDataProcess"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="船体结构随机应力谱计算及应力统计程序" 
+        Height="450" 
+        Width="800"
+        Loaded="MainWindow_Load">
+    <mah:HamburgerMenu x:Name="mainMenu"
+                       DisplayMode="CompactOverlay"
+                       HamburgerWidth="48"
+                       ItemClick="mainMenu_ItemInvoked"
+                       ItemTemplate="{StaticResource HamburgerMenuItem}"
+                       AllowDrop="True">
+        <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <DataTemplate>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="White"
+                           Text="菜单"/>
+            </DataTemplate>
+        </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+
+        <mah:HamburgerMenu.ItemsSource>
+            <mah:HamburgerMenuItemCollection>
+
+                <mah:HamburgerMenuGlyphItem Glyph="/Resources/setting.png" 
+                                            Label="波浪数据"
+                                            Tag="SelectSpectrumParam">
+                </mah:HamburgerMenuGlyphItem>
+
+                <mah:HamburgerMenuGlyphItem Glyph="/Resources/transfer_function.png"
+                                            Label="传递函数界面"
+                                            Tag="TransferFunction"/>
+
+                <mah:HamburgerMenuGlyphItem Glyph="/Resources/statistics.png"
+                                            Label="数据处理"
+                                            Tag="DataProcess"/>
+
+                <mah:HamburgerMenuGlyphItem Glyph="/Resources/help.png"
+                                            Label="帮助"
+                                            Tag="HelpDoc"/>
+
+                <mah:HamburgerMenuGlyphItem Glyph="/Resources/about.png"
+                                            Label="关于"
+                                            Tag="About"/>
+            </mah:HamburgerMenuItemCollection>
+        </mah:HamburgerMenu.ItemsSource>
+        
+    </mah:HamburgerMenu>
+</mah:MetroWindow>

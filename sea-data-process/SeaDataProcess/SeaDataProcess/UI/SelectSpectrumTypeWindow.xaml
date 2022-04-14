@@ -1,0 +1,210 @@
+﻿<mah:MetroWindow x:Class="SeaDataProcess.UI.SelectSpectrumTypeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SeaDataProcess.UI"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="波浪数据界面"
+        TitleAlignment="Center"
+        Height="450" 
+        Width="800"
+        FontSize="15"
+        Loaded="SelectSpectrumTypeWindow_Loaded">
+    <mah:MetroWindow.Resources>
+    </mah:MetroWindow.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Grid.Column="2"
+              Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1"
+               Grid.Column="0"
+               Content="请选择频谱类型"
+               FontSize="15"
+               VerticalContentAlignment="Center"/>
+
+            <RadioButton x:Name="rbPM"
+                         Content="PM谱"
+                         Grid.Column="0"
+                         Grid.Row="2"
+                         HorizontalAlignment="Left"
+                         GroupName="Spectrum"
+                         IsChecked="True"
+                         Checked="rbPM_Checked"
+                         FontSize="15"
+                         Margin="5,8"/>
+
+
+            <RadioButton x:Name="rbJONSWAP"
+                         Content="JONSWAP谱"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         GroupName="Spectrum"
+                         FontSize="15"
+                         Margin="5,8"
+                         Checked="rbJONSWAP_Checked"/>
+
+            <TextBox Grid.Row="2"
+                 Grid.Column="2"
+                 BorderThickness="0,0,0,1"
+                 VerticalAlignment="Center"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalAlignment="Left"
+                 MinHeight="30"
+                 MinWidth="30"
+                 MaxWidth="100"
+                 mah:TextBoxHelper.Watermark="请输入r峰升因子"
+                 Margin="3,8"
+                 x:Name="tbR"/>
+
+
+            <Label Grid.Row="4"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+               VerticalContentAlignment="Center"
+               Content="周期类型"
+                   Margin="0,10"/>
+            <RadioButton x:Name="rbTp"
+                         Grid.Column="1"
+                         Grid.Row="5"
+                         Margin="5,8"
+                         Content="谱峰周期(Tp)"
+                         HorizontalAlignment="Left"
+                         FontSize="15"/>
+
+            <RadioButton x:Name="rbTz"
+                         Grid.Column="0"
+                         Grid.Row="5"
+                         Content="跨零周期(Tz)"
+                         IsChecked="True"
+                         Margin="5,8"
+                         HorizontalAlignment="Left"
+                         Checked="rbTp_Checked"
+                         FontSize="15"/>
+        </Grid>
+    
+        <StackPanel Grid.Row="4"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+            <Button x:Name="btnCancel"
+                    Content="取消"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    MinWidth="120"
+                    Click="btnCancel_Click"/>
+            <Button x:Name="btnConfirm"
+                    Content="确认"
+                    MinWidth="120"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Click="btnConfirm_Click"/>
+        </StackPanel>
+
+        <Grid Grid.Row="0"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0"
+                   Grid.Row="1"
+                   Margin="3,8"
+                   VerticalContentAlignment="Center"
+                   Content="波浪方向数量"/>
+
+            <TextBox Grid.Column="1"
+                     Grid.Row="1"
+                     MinHeight="30"
+                     MinWidth="30"
+                     MaxWidth="100"
+                BorderThickness="0,0,0,1"
+                     HorizontalAlignment="Left"
+                 VerticalContentAlignment="Bottom"
+                 mah:TextBoxHelper.Watermark="请输入波浪方向数量"
+                 mah:TextBoxHelper.WatermarkAlignment="Left"
+                 Margin="3,8"
+                 x:Name="tbNumOfND"/>
+
+            <Label Grid.Column="0"
+                   Grid.Row="2"
+                   Content="波浪长期分布表"
+                   VerticalContentAlignment="Center"
+                   Margin="3,8"/>
+            <Button Grid.Column="1"
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    Content="导入"
+                    x:Name="btnWaveData"
+                    MaxWidth="120"
+                    HorizontalAlignment="Left"
+                    MinWidth="120"
+                    Margin="3,8"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    FontSize="12"
+                    Click="btnWaveData_Click"/>
+
+            <Label Grid.Column="0"
+                   Grid.Row="3"
+                   Content="方向概率"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Right"
+                   Margin="3,8"/>
+            <Button Grid.Column="1"
+                    Grid.Row="3"
+                    VerticalAlignment="Center"
+                    Content="导入"
+                    x:Name="btnDirectionProbalility"
+                    MaxWidth="120"
+                    HorizontalAlignment="Left"
+                    MinWidth="120"
+                    Margin="3,8"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    FontSize="12"
+                    Click="btnDirectionProbalility_Click"/>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

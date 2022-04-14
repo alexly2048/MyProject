@@ -1,0 +1,29 @@
+﻿<mah:MetroContentControl x:Class="SeaDataProcess.Controls.StatisticResultChartControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SeaDataProcess.Controls"
+             xmlns:lv="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="TransferFunctionChartControl_Loaded">
+    <Grid Background="White">
+        <lv:CartesianChart x:Name="transferChart">
+            <lv:CartesianChart.Series>
+                <lv:ColumnSeries Title="次数（Ns）" 
+                                 Values="{Binding YValues}">
+                </lv:ColumnSeries>
+            </lv:CartesianChart.Series>
+            <lv:CartesianChart.AxisX>
+                <lv:Axis Title="应力幅（MPa）" 
+                         Labels="{Binding XLabels}" 
+                         ShowLabels="True"></lv:Axis>
+            </lv:CartesianChart.AxisX>
+            <lv:CartesianChart.AxisY>
+                <lv:Axis x:Name="axisY" MinValue="0" Title="次数（Ns)"></lv:Axis>
+            </lv:CartesianChart.AxisY>
+        </lv:CartesianChart>
+    </Grid>
+</mah:MetroContentControl>

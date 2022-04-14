@@ -1,0 +1,182 @@
+﻿<mah:MetroContentControl x:Class="SeaDataProcess.Controls.DataProcessControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SeaDataProcess.Controls"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+                         Loaded="DataProcessControl_Loaded">
+    <mah:MetroContentControl.Resources>
+        <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource MahApps.Styles.TabItem}">
+            <Setter Property="FontSize" Value="8"/>
+        </Style>
+    </mah:MetroContentControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Margin="3,5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Margin="3"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   Content="裂纹增长参数(m)"/>
+                <Label Grid.Row="0"
+                   Grid.Column="1"
+                   Margin="3"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   Content="应力幅阈值(Δσ0/MPa)"/>
+                <Label Grid.Column="2"
+                   Grid.Row="0"
+                   Margin="3"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   Content="应力幅步长(σd/MPa)"/>
+                <Label Grid.Row="0"
+                   Grid.Column="3"
+                   Margin="3"
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   Content="频率步长(fd/Hz)"/>
+                
+                <TextBox x:Name="tM"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     BorderThickness="1"
+                     Margin="3"
+                     Text="1"
+                     VerticalContentAlignment="Center"
+                     MaxWidth="60"/>
+                <TextBox x:Name="tSigma0"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     BorderThickness="1"
+                     Margin="3"
+                     VerticalContentAlignment="Center"
+                     Text="0"
+                     MaxWidth="60"/>
+                <TextBox x:Name="tD"
+                     Grid.Row="1"
+                     Grid.Column="2"
+                     BorderThickness="1"
+                     Margin="3"
+                     Text="0.1"
+                     VerticalContentAlignment="Center"
+                     MaxWidth="60"/>
+                <TextBox x:Name="tFD"
+                     Grid.Row="1"
+                     Grid.Column="3"
+                     BorderThickness="1"
+                     Margin="3"
+                     Text="0.01"
+                     VerticalContentAlignment="Center"
+                     MaxWidth="60"/>
+
+                <Button Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                        Grid.Row="2"
+                        Grid.Column="3"
+                    MaxHeight="30"
+                    MaxWidth="80"
+                        MinWidth="80"
+                    Margin="8"
+                    BorderThickness="0"
+                    Content="统计计算"
+                    x:Name="btnCalculate"
+                    Click="btnCalculate_Click"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="0"
+                Grid.Column="1"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="3,5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                   Content="应力幅统计间隔(MPa)"
+                   Margin="3"
+                       HorizontalContentAlignment="Left"
+                   VerticalContentAlignment="Center"/>
+                <TextBox Grid.Row="1"
+                     BorderThickness="1"
+                     VerticalContentAlignment="Center"
+                         HorizontalAlignment="Left"
+                     Margin="3"
+                     Text="{Binding StatisticStep,Mode=TwoWay}"
+                     mah:TextBoxHelper.Watermark="统计间隔"
+                     x:Name="tbStep"
+                     MaxWidth="60"/>
+
+                <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+
+                    <Button 
+                    Content="结果整理"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    MaxWidth="80"
+                    MinWidth="80"
+                    MaxHeight="30"
+                Margin="8"
+                BorderThickness="0"
+                    x:Name="btnStatistic"
+                    Click="btnStatistic_Click"/>
+                    <Button 
+                    Content="导出结果"
+                    Style="{StaticResource MahApps.Styles.Button.Square.Accent}"
+                    MaxWidth="80"
+                    MinWidth="80"
+                    MaxHeight="30"
+                BorderThickness="0"
+                Margin="8"
+                    x:Name="btnExport"
+                    Click="btnExport_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TabControl Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    x:Name="tabChart"
+                    Style="{StaticResource MahApps.Styles.TabControl}"
+                    Background="Transparent">
+        </TabControl>
+    </Grid>
+</mah:MetroContentControl>
