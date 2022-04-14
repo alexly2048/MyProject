@@ -1,0 +1,64 @@
+﻿<mah:MetroWindow x:Class="ExpensesSysUI.Windows.ConstructItem.SelectedSecondaryConstructWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpensesSysUI.Windows.ConstructItem"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="选择二级项目类别" 
+        Height="450"
+                 WindowStartupLocation="CenterOwner"
+        Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="关键字"
+                   Grid.Column="0"
+                   Style="{StaticResource displayLableStyle}"/>
+            <TextBox Grid.Column="1"
+                    Style="{StaticResource editTextBoxStyle}"
+                     Text="{Binding Key}"/>
+            <Button Grid.Column="2"
+                    Content="查询"
+                    Style="{StaticResource menuButton}"
+                    Click="btnQuery_Click"/>
+            <Button Grid.Column="3"
+                    Content="确认选择"
+                    Style="{StaticResource menuButton}"
+                    Click="btnSelect_Click"/>
+        </Grid>
+
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  DataContext="{Binding}"
+                  ItemsSource="{Binding SecondaryConstructs}"
+                  SelectedItem="{Binding SelectedSecondaryConstruct}"
+                  Style="{StaticResource MahApps.Styles.DataGrid.Azure}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Visibility="Hidden" Width="*" Binding="{Binding SecondaryConstructID}"/>
+                <DataGridTextColumn Header="名称"  Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="一级预算类别"  Binding="{Binding TopConstructName}" Width="*"/>
+                <DataGridTextColumn Header="预算科目"  Binding="{Binding BudgetName}" Width="*"/>
+                <DataGridTextColumn Header="部门"  Binding="{Binding DepartmentName}" Width="*"/>
+                <DataGridTextColumn Header="金额"  Binding="{Binding Money}" Width="*"/>
+                <DataGridTextColumn Header="支出"  Binding="{Binding ActualExpense}" Width="*"/>
+                <DataGridTextColumn Header="余额"  Binding="{Binding Surplus}" Width="*"/>
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</mah:MetroWindow>

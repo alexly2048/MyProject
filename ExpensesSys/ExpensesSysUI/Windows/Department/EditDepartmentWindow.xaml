@@ -1,0 +1,65 @@
+﻿<mah:MetroWindow x:Class="ExpensesSysUI.Windows.EditDepartmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpensesSysUI.Windows"
+        mc:Ignorable="d"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        ResizeMode="NoResize"
+        Title="部门信息-编辑" 
+                 WindowStartupLocation="CenterOwner"
+        Height="550" 
+        Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" 
+               Grid.Column ="1"
+               Content="名称"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 Style="{StaticResource editTextBoxStyle}"
+                 Text="{Binding SelectedDepartment.Name}"
+                 MinHeight="30"/>
+        <Label Grid.Row="3" 
+               Grid.Column ="1"
+               Content="备注"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="4"
+                 Grid.Column="1"
+                 AcceptsReturn="True"
+                 Style="{StaticResource editTextBoxStyle}"
+                 Text="{Binding SelectedDepartment.Remark}"
+                 MinHeight="30"/>
+
+        <StackPanel Grid.Row="5"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="退出"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Background="Crimson"
+                    Click="btnExit_Click"/>
+            <Button Content="修改"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Click="btnSubmit_Click"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

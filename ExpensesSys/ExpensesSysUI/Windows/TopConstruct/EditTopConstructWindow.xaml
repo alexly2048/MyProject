@@ -1,0 +1,137 @@
+﻿<mah:MetroWindow x:Class="ExpensesSysUI.Windows.EditTopConstructWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpensesSysUI.Windows"
+        mc:Ignorable="d"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Title="一级项目类别-编辑" 
+        Height="700" 
+        Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" 
+               Grid.Column ="1"
+               Content="名称"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="2"
+                 Grid.Column="1"
+                 Style="{StaticResource editTextBoxStyle}"
+                 Text="{Binding SelectedTopConstruct.Name}"
+                 MinHeight="30"/>
+        <Label Grid.Row="3"
+               Grid.Column="1"
+               Content="所属部门"
+               Style="{StaticResource displayLableStyle}"/>
+        <ComboBox Grid.Row="4"
+                  Grid.Column="1"
+                  MinHeight="30"
+                  Margin="3,5"
+                  Style="{StaticResource MahApps.Styles.ComboBox}"
+                  ItemsSource="{Binding Departments}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding SelectedDepartment}"
+                  Text="{Binding SelectedDepartment.Name}"
+                  IsReadOnly="True"
+                  SelectedValuePath="{Binding DepartmentID}"
+                  SelectionChanged="cbDepartments_SelectionChanged"/>
+        <Label Grid.Row="5"
+               Grid.Column="1"
+               Content="预算科目"
+               Style="{StaticResource displayLableStyle}"/>
+        <ComboBox Grid.Row="6"
+                  Grid.Column="1"
+                  MinHeight="30"
+                  Margin="3,5"
+                  Style="{StaticResource MahApps.Styles.ComboBox}"
+                  ItemsSource="{Binding Budgets}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding SelectedBudget}"
+                  Text="{Binding SelectedBudget.Name}"
+                  IsReadOnly="True"
+                  SelectedValuePath="{Binding BudgetID}"/>
+        <Label Grid.Row="7" 
+               Grid.Column ="1"
+               Content="金额"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="8"
+                 Grid.Column="1"
+                 Style="{StaticResource editTextBoxStyle}"
+                 Text="{Binding SelectedTopConstruct.Money,UpdateSourceTrigger=PropertyChanged}"
+                 TextChanged="TextBox_TextChanged"
+                 MinHeight="30">
+        </TextBox>
+        <Label Grid.Row="9" 
+               Grid.Column ="1"
+               Content="开支"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="10"
+                 Grid.Column="1"
+                 Style="{StaticResource editTextBoxStyle}"
+                 IsReadOnly="True"
+                 Text="{Binding SelectedTopConstruct.ActualExpense}"
+                 MinHeight="30"/>
+        <Label Grid.Row="11" 
+               Grid.Column ="1"
+               Content="余额"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="12"
+                 Grid.Column="1"
+                 Style="{StaticResource editTextBoxStyle}"
+                 IsReadOnly="True"
+                 Text="{Binding SelectedTopConstruct.Surplus}"
+                 MinHeight="30"/>
+        <Label Grid.Row="13" 
+               Grid.Column ="1"
+               Content="备注"
+               Style="{StaticResource displayLableStyle}"/>
+        <TextBox Grid.Row="14"
+                 Grid.Column="1"
+                 AcceptsReturn="True"
+                 Style="{StaticResource editTextBoxStyle}"
+                 Text="{Binding SelectedTopConstruct.Remark}"
+                 MinHeight="30"/>
+
+        <StackPanel Grid.Row="15"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="退出"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Background="Crimson"
+                    Click="btnExit_Click"/>
+            <Button Content="提交"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Click="btnSubmit_Click"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

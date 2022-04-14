@@ -1,0 +1,246 @@
+﻿<mah:MetroWindow x:Class="ExpensesSysUI.Windows.AddConstructWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpensesSysUI.Windows"
+                 xmlns:lc ="clr-namespace:ExpensesSysUI.Controls"
+        mc:Ignorable="d"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Title="开支明细-新增" 
+        Height="700" 
+        Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".1*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" 
+               Grid.Column ="1"
+               Content="项目名称"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="1"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.Name}"/>
+        <Label Grid.Row="1"
+               Grid.Column="3"
+               Content="单位"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="1"
+                 Grid.Column="4"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.Unit}"/>
+        
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               Content="数量"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="2"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.QTY}"/>
+        <Label Grid.Row="2"
+               Grid.Column="3"
+               Content="单价"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="2"
+                 Grid.Column="4"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.Price}"/>
+        
+        <Label Grid.Row="3" 
+               Grid.Column ="1"
+               Content="金额"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="3"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.Money,UpdateSourceTrigger=PropertyChanged}"
+                 TextChanged="TextBox_TextChanged"
+                 MinHeight="30">
+        </TextBox>
+        <Label Grid.Row="3" 
+               Grid.Column ="3"
+               Content="开支"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="3"
+                 Grid.Column="4"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.ActualExpense,UpdateSourceTrigger=PropertyChanged}"
+                 TextChanged="TextBox_TextChanged"/>
+        
+        <Label Grid.Row="4" 
+               Grid.Column ="1"
+               Content="余额"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="4"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 IsReadOnly="True"
+                 Text="{Binding AddConstruct.Surplus}"
+                 MinHeight="30"/>
+        <Label Grid.Row="4" 
+               Grid.Column ="3"
+               Content="承办人"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="4"
+                 Grid.Column="4"
+                 AcceptsReturn="True"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.Contractor}"/>
+
+        <Label Grid.Row="5" 
+               Grid.Column ="1"
+               Content="采购方式"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="5"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.ProcurementMode}"
+                 MinHeight="30"/>
+        <Label Grid.Row="5" 
+               Grid.Column ="3"
+               Content="计划完成日期"
+               Style="{StaticResource displayStyle}"/>
+        <lc:MyDateTimePicker Grid.Row="5"
+                 Grid.Column="4"
+                 Style="{StaticResource datePickerStyle}"
+                 mah:TextBoxHelper.Watermark="选择日期"
+                 SelectedDateTime="{Binding AddConstruct.PlanCompletedDate}"/>
+
+        <Label Grid.Row="6" 
+               Grid.Column ="1"
+               Content="审批方式"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="6"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding AddConstruct.ApprovalMode}"
+                 MinHeight="30"/>
+        <Label Grid.Row="6" 
+               Grid.Column ="3"
+               Content="支出日期"
+               Style="{StaticResource displayStyle}"/>
+        <lc:MyDateTimePicker Grid.Row="6"
+                 Grid.Column="4"
+                 Style="{StaticResource datePickerStyle}"
+                 mah:TextBoxHelper.Watermark="选择日期"
+                 SelectedDateTime="{Binding AddConstruct.ActualCompletedDate}"/>
+
+        <Button Grid.Row="8"
+                Grid.Column="1"
+                Grid.ColumnSpan="4"
+                Content="选择所属项目类别"
+                BorderThickness="0"
+                Margin="0,5"
+                Style="{StaticResource menuButton}"
+                Click="bntSelectSecondaryConstruct_Click"/>
+
+        <Label Grid.Row="9" 
+               Grid.Column ="1"
+               Content="二级项目类别"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="9"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 IsReadOnly="True"
+                 Text="{Binding SelectedSecondaryConstruct.Name}"
+                 MinHeight="30"/>
+        <Label Grid.Row="9" 
+               Grid.Column ="3"
+               Content="一级项目类别"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="9"
+                 Grid.Column="4"
+                 IsReadOnly="True"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding SelectedSecondaryConstruct.TopConstructName}"/>
+
+        <Label Grid.Row="10" 
+               Grid.Column ="1"
+               Content="预算科目"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="10"
+                 Grid.Column="2"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 IsReadOnly="True"
+                 Text="{Binding SelectedSecondaryConstruct.BudgetName}"
+                 MinHeight="30"/>
+        <Label Grid.Row="10" 
+               Grid.Column ="3"
+               Content="所属部门"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="10"
+                 Grid.Column="4"
+                 IsReadOnly="True"
+                 Style="{StaticResource paramTextBoxStyle}"
+                 Text="{Binding SelectedSecondaryConstruct.DepartmentName}"/>
+
+        <Label Grid.Row="7" 
+               Grid.Column ="1"
+               Content="科室"
+               Style="{StaticResource displayStyle}"/>
+        <ComboBox Grid.Row="7"
+                  Grid.Column="2"
+                  Grid.ColumnSpan="3"
+                  Margin="3,5"
+                  Style="{StaticResource MahApps.Styles.ComboBox}"
+                  ItemsSource="{Binding Offices}"
+                  DisplayMemberPath="Name"
+                  SelectedItem="{Binding SelectedOffice}"
+                  SelectionChanged="cbOffices_SelectionChanged"
+                  IsReadOnly="True"
+                  SelectedValuePath="{Binding OfficeID}"/>
+        <Label Grid.Row="11" 
+               Grid.Column ="1"
+               Content="备注"
+               Style="{StaticResource displayStyle}"/>
+        <TextBox Grid.Row="12"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="4"
+                 Style="{StaticResource editTextBoxStyle}"
+                 Text="{Binding AddConstruct.Remark}"/>
+        
+
+        <StackPanel Grid.Row="13"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="4"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="退出"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Background="Crimson"
+                    Click="btnExit_Click"/>
+            <Button Content="新增"
+                    Style="{StaticResource menuButton}"
+                    BorderThickness="0"
+                    Click="btnAdd_Click"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>
