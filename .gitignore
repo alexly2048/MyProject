@@ -343,3 +343,6 @@ healthchecksdb
 # archive file
 *.zip
 *.rar
+
+# ignore .dll file
+*.dll
