@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesSysLib", "ExpensesSys\ExpensesSysLib.csproj", "{FFA441C9-210A-477B-8EF9-B9208571A0D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesSysUI", "ExpensesSysUI\ExpensesSysUI.csproj", "{09D6275A-F25D-4FDC-BDEF-72D165314E57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFA441C9-210A-477B-8EF9-B9208571A0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA441C9-210A-477B-8EF9-B9208571A0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA441C9-210A-477B-8EF9-B9208571A0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA441C9-210A-477B-8EF9-B9208571A0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D6275A-F25D-4FDC-BDEF-72D165314E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D6275A-F25D-4FDC-BDEF-72D165314E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D6275A-F25D-4FDC-BDEF-72D165314E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D6275A-F25D-4FDC-BDEF-72D165314E57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CABA170-D3AB-4B6A-9DA5-D4C720768873}
+	EndGlobalSection
+EndGlobal

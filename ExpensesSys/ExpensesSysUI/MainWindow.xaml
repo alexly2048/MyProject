@@ -1,0 +1,54 @@
+﻿<mah:MetroWindow x:Class="ExpensesSysUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpensesSysUI"
+        mc:Ignorable="d"
+        Loaded="MainWindow_Load"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="欢迎使用预算管理系统" Height="450" Width="800">
+    <mah:HamburgerMenu x:Name="mainMenu"
+                       DisplayMode="CompactOverlay"
+                       HamburgerWidth="48"
+                       ItemClick="mainMenu_ItemInvoked"
+                       ItemTemplate="{StaticResource HamburgerMenuItem}"
+                       AllowDrop="True">
+        <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+            <DataTemplate>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="White"
+                           Text="菜单"/>
+            </DataTemplate>
+        </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+
+        <mah:HamburgerMenu.ItemsSource>
+            <mah:HamburgerMenuItemCollection>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/department.png" 
+                                            Label="部门信息"
+                                            Tag="Department">
+                </mah:HamburgerMenuGlyphItem>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/office.png"
+                                            Label="科室信息"
+                                            Tag="Office"/>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/budget.png"
+                                            Label="预算科目"
+                                            Tag="Budget"/>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/topConstruct.png" 
+                                            Label="一级项目类别"
+                                            Tag="TopConstruct"/>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/secondaryConstruct.png"
+                                            Label="二级项目类别"
+                                            Tag="SecondaryConstruct"/>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/construct.png"
+                                            Label="项目"
+                                            Tag="Construct"/>
+                <mah:HamburgerMenuGlyphItem Glyph="/Asserts/constructItem.png"
+                                            Label="开支明细"
+                                            Tag="ConstructItem"/>
+            </mah:HamburgerMenuItemCollection>
+        </mah:HamburgerMenu.ItemsSource>
+    </mah:HamburgerMenu>
+</mah:MetroWindow>

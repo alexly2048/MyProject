@@ -1,0 +1,13 @@
+# 开发环境
+1. NET Framekwro 4.7.2
+2. Visual Studio 2017 Community
+3. WPF
+
+# 类库
+1. MahApps
+2. NPOI
+3. Dapper
+
+# 说明
+    该项目使用WPF与MahApps进行UI界面设计，整个项目使用MVVM模式，用户录入数据后，通过使用Dapper构建
+的服务，将数据存储在数据库中。
