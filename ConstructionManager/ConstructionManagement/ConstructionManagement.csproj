@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51644100-E7FA-4502-B40C-A99732E4E636}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ConstructionManagement</RootNamespace>
+    <AssemblyName>ConstructionManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\Dapper.1.40\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\Dapper.Contrib.1.40\lib\net45\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="IconExtractor">
+      <HintPath>Dll\IconExtractor.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin4">
+      <HintPath>Dll\IrisSkin4.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.8.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\FreeSpire.XLS.10.1.0\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=6.1.4.2040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\FreeSpire.XLS.10.1.0\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=10.1.4.61040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\weimin\packages\FreeSpire.XLS.10.1.0\lib\net40\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CommonData.cs" />
+    <Compile Include="Data\Helper.cs" />
+    <Compile Include="Data\SortablBindingList.cs" />
+    <Compile Include="example.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="example.Designer.cs">
+      <DependentUpon>example.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Acceptance\Acceptance.cs" />
+    <Compile Include="Model\Acceptance\AcceptanceImage.cs" />
+    <Compile Include="Model\AppendixFile.cs" />
+    <Compile Include="Model\Authority.cs" />
+    <Compile Include="Model\ConstructionLog.cs" />
+    <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="Model\Memo.cs" />
+    <Compile Include="Model\NotificationInfo.cs" />
+    <Compile Include="Model\SHFileInfo.cs" />
+    <Compile Include="Model\Shortcut.cs" />
+    <Compile Include="Model\TelDict.cs" />
+    <Compile Include="Service\AuthorityService.cs" />
+    <Compile Include="Model\BaseEntity.cs" />
+    <Compile Include="Model\ConstructionNode.cs" />
+    <Compile Include="Model\ConstructionOverallSchedule.cs" />
+    <Compile Include="Model\ConstructionPlanModel.cs" />
+    <Compile Include="Model\ConstructionQuantity.cs" />
+    <Compile Include="Model\LoginUser.cs" />
+    <Compile Include="Model\NodeItem.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\SubItem\ConstructionSubItem.cs" />
+    <Compile Include="Model\SubItem\SubItemFile.cs" />
+    <Compile Include="Model\SubItem\SubItemImage.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AcceptanceImageService.cs" />
+    <Compile Include="Service\AcceptanceService.cs" />
+    <Compile Include="Service\Connection.cs" />
+    <Compile Include="Service\ConstructionLogService.cs" />
+    <Compile Include="Service\ConstructionNodeService.cs" />
+    <Compile Include="Service\ConstructionNode\ConstructionFileService.cs" />
+    <Compile Include="Service\ConstructionOverallScheduleService.cs" />
+    <Compile Include="Service\ConstructionPlanService.cs" />
+    <Compile Include="Service\ConstructionQuantityService.cs" />
+    <Compile Include="Service\ConstructionSubItemService.cs" />
+    <Compile Include="Service\ExcelService.cs" />
+    <Compile Include="Service\FileService.cs" />
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Service\MenuItemService.cs" />
+    <Compile Include="Service\NotificationInfoService.cs" />
+    <Compile Include="Service\NotificationService.cs" />
+    <Compile Include="Service\PathService.cs" />
+    <Compile Include="Service\SubItemFileService.cs" />
+    <Compile Include="Service\SubItemImageService.cs" />
+    <Compile Include="Service\TelDictService.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="UI\Acceptance\FrmAcceptance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmAcceptance.Designer.cs">
+      <DependentUpon>FrmAcceptance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmAcceptanceImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmAcceptanceImage.Designer.cs">
+      <DependentUpon>FrmAcceptanceImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmAddAcceptanceImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmAddAcceptanceImage.Designer.cs">
+      <DependentUpon>FrmAddAcceptanceImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmEditAcceptance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Acceptance\FrmEditAcceptance.Designer.cs">
+      <DependentUpon>FrmEditAcceptance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionLog\ConstructionLogReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionLog\ConstructionLogReport.Designer.cs">
+      <DependentUpon>ConstructionLogReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmAddNewFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmAddNewFile.Designer.cs">
+      <DependentUpon>FrmAddNewFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmConstructionNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmConstructionNode.Designer.cs">
+      <DependentUpon>FrmConstructionNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmEditConstructionNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmEditConstructionNode.Designer.cs">
+      <DependentUpon>FrmEditConstructionNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmUploadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionNode\FrmUploadFile.Designer.cs">
+      <DependentUpon>FrmUploadFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionOverallSchedule\FrmConstructionOverallSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionOverallSchedule\FrmConstructionOverallSchedule.Designer.cs">
+      <DependentUpon>FrmConstructionOverallSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionOverallSchedule\FrmEditSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionOverallSchedule\FrmEditSchedule.Designer.cs">
+      <DependentUpon>FrmEditSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionPlan\FrmConstructionMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionPlan\FrmConstructionMethod.Designer.cs">
+      <DependentUpon>FrmConstructionMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionPlan\FrmConstructionPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionPlan\FrmConstructionPlan.Designer.cs">
+      <DependentUpon>FrmConstructionPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionPlan\FrmEditPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionPlan\FrmEditPlan.Designer.cs">
+      <DependentUpon>FrmEditPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionQuantity\FrmConstructionQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionQuantity\FrmConstructionQuantity.Designer.cs">
+      <DependentUpon>FrmConstructionQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionQuantity\FrmEditConstructionQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionQuantity\FrmEditConstructionQuantity.Designer.cs">
+      <DependentUpon>FrmEditConstructionQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmEditItemFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmEditItemFile.Designer.cs">
+      <DependentUpon>FrmEditItemFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmEditItemImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmEditItemImage.Designer.cs">
+      <DependentUpon>FrmEditItemImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmEditSubItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmEditSubItem.Designer.cs">
+      <DependentUpon>FrmEditSubItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmItemImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmItemImage.Designer.cs">
+      <DependentUpon>FrmItemImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmSubItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmSubItem.Designer.cs">
+      <DependentUpon>FrmSubItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmSubItemFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionSubItem\FrmSubItemFile.Designer.cs">
+      <DependentUpon>FrmSubItemFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormEditTelDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormEditTelDict.Designer.cs">
+      <DependentUpon>FormEditTelDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormTelDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormTelDict.Designer.cs">
+      <DependentUpon>FormTelDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmFileExe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmFileExe.Designer.cs">
+      <DependentUpon>FrmFileExe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmWindowNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmWindowNew.Designer.cs">
+      <DependentUpon>FrmWindowNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\FormEditNotificationPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\FormEditNotificationPwd.Designer.cs">
+      <DependentUpon>FormEditNotificationPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\FrmValidatePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\FrmValidatePwd.Designer.cs">
+      <DependentUpon>FrmValidatePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserManager\FrmAuthority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserManager\FrmAuthority.Designer.cs">
+      <DependentUpon>FrmAuthority.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserManager\FrmMenuItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserManager\FrmMenuItem.Designer.cs">
+      <DependentUpon>FrmMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\FormEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\FormEditUser.Designer.cs">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\FrmAddLoginUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\FrmAddLoginUser.Designer.cs">
+      <DependentUpon>FrmAddLoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionLog\FrmConstructionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionLog\FrmConstructionLog.Designer.cs">
+      <DependentUpon>FrmConstructionLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConstructionLog\FrmEditConstructionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConstructionLog\FrmEditConstructionLog.Designer.cs">
+      <DependentUpon>FrmEditConstructionLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\FrmLoginUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\FrmLoginUser.Designer.cs">
+      <DependentUpon>FrmLoginUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\FrmEditNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\FrmEditNotification.Designer.cs">
+      <DependentUpon>FrmEditNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\FrmNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\FrmNotification.Designer.cs">
+      <DependentUpon>FrmNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmWindow.Designer.cs">
+      <DependentUpon>FrmWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="example.resx">
+      <DependentUpon>example.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Acceptance\FrmAcceptance.resx">
+      <DependentUpon>FrmAcceptance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Acceptance\FrmAcceptanceImage.resx">
+      <DependentUpon>FrmAcceptanceImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Acceptance\FrmAddAcceptanceImage.resx">
+      <DependentUpon>FrmAddAcceptanceImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Acceptance\FrmEditAcceptance.resx">
+      <DependentUpon>FrmEditAcceptance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionLog\ConstructionLogReport.resx">
+      <DependentUpon>ConstructionLogReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionNode\FrmAddNewFile.resx">
+      <DependentUpon>FrmAddNewFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionNode\FrmConstructionNode.resx">
+      <DependentUpon>FrmConstructionNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionNode\FrmEditConstructionNode.resx">
+      <DependentUpon>FrmEditConstructionNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionNode\FrmUploadFile.resx">
+      <DependentUpon>FrmUploadFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionOverallSchedule\FrmConstructionOverallSchedule.resx">
+      <DependentUpon>FrmConstructionOverallSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionOverallSchedule\FrmEditSchedule.resx">
+      <DependentUpon>FrmEditSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionPlan\FrmConstructionMethod.resx">
+      <DependentUpon>FrmConstructionMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionPlan\FrmConstructionPlan.resx">
+      <DependentUpon>FrmConstructionPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionPlan\FrmEditPlan.resx">
+      <DependentUpon>FrmEditPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionQuantity\FrmConstructionQuantity.resx">
+      <DependentUpon>FrmConstructionQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionQuantity\FrmEditConstructionQuantity.resx">
+      <DependentUpon>FrmEditConstructionQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionSubItem\FrmEditItemFile.resx">
+      <DependentUpon>FrmEditItemFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionSubItem\FrmEditItemImage.resx">
+      <DependentUpon>FrmEditItemImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionSubItem\FrmEditSubItem.resx">
+      <DependentUpon>FrmEditSubItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionSubItem\FrmItemImage.resx">
+      <DependentUpon>FrmItemImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionSubItem\FrmSubItem.resx">
+      <DependentUpon>FrmSubItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionSubItem\FrmSubItemFile.resx">
+      <DependentUpon>FrmSubItemFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormEditTelDict.resx">
+      <DependentUpon>FormEditTelDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormTelDict.resx">
+      <DependentUpon>FormTelDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmFileExe.resx">
+      <DependentUpon>FrmFileExe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmWindowNew.resx">
+      <DependentUpon>FrmWindowNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\FormEditNotificationPwd.resx">
+      <DependentUpon>FormEditNotificationPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\FrmValidatePwd.resx">
+      <DependentUpon>FrmValidatePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserManager\FrmAuthority.resx">
+      <DependentUpon>FrmAuthority.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserManager\FrmMenuItem.resx">
+      <DependentUpon>FrmMenuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\FormEditUser.resx">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\FrmAddLoginUser.resx">
+      <DependentUpon>FrmAddLoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionLog\FrmConstructionLog.resx">
+      <DependentUpon>FrmConstructionLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ConstructionLog\FrmEditConstructionLog.resx">
+      <DependentUpon>FrmEditConstructionLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\FrmLoginUser.resx">
+      <DependentUpon>FrmLoginUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\FrmEditNotification.resx">
+      <DependentUpon>FrmEditNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\FrmNotification.resx">
+      <DependentUpon>FrmNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmWindow.resx">
+      <DependentUpon>FrmWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\ConstructionManagement.Model.Authority.datasource" />
+    <None Include="Properties\DataSources\ConstructionManagement.Model.ConstructionLog.datasource" />
+    <None Include="Properties\DataSources\ConstructionManagement.Model.FileShortcut.datasource" />
+    <None Include="Properties\DataSources\ConstructionManagement.Model.Notification.datasource" />
+    <None Include="Properties\DataSources\ConstructionManagement.Model.TelDict.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Skins\Calmness.ssk" />
+    <None Include="Skins\CalmnessColor1.ssk" />
+    <None Include="Skins\CalmnessColor2.ssk" />
+    <None Include="Skins\DeepCyan.ssk" />
+    <None Include="Skins\DeepGreen.ssk" />
+    <None Include="Skins\DeepOrange.ssk" />
+    <None Include="Skins\DiamondBlue.ssk" />
+    <None Include="Skins\DiamondGreen.ssk" />
+    <None Include="Skins\DiamondOlive.ssk" />
+    <None Include="Skins\DiamondPurple.ssk" />
+    <None Include="Skins\DiamondRed.ssk" />
+    <None Include="Skins\Eighteen.ssk" />
+    <None Include="Skins\EighteenColor1.ssk" />
+    <None Include="Skins\EighteenColor2.ssk" />
+    <None Include="Skins\Emerald.ssk" />
+    <None Include="Skins\EmeraldColor1.ssk" />
+    <None Include="Skins\EmeraldColor2.ssk" />
+    <None Include="Skins\EmeraldColor3.ssk" />
+    <None Include="Skins\GlassBrown.ssk" />
+    <None Include="Skins\GlassGreen.ssk" />
+    <None Include="Skins\GlassOrange.ssk" />
+    <None Include="Skins\Longhorn.ssk" />
+    <None Include="Skins\MacOS.ssk" />
+    <None Include="Skins\Midsummer.ssk" />
+    <None Include="Skins\MidsummerColor1.ssk" />
+    <None Include="Skins\MidsummerColor2.ssk" />
+    <None Include="Skins\MidsummerColor3.ssk" />
+    <None Include="Skins\mp10.ssk" />
+    <None Include="Skins\mp10green.ssk" />
+    <None Include="Skins\mp10maroon.ssk" />
+    <None Include="Skins\mp10mulberry.ssk" />
+    <None Include="Skins\mp10pink.ssk" />
+    <None Include="Skins\mp10purple.ssk" />
+    <None Include="Skins\MSN.ssk" />
+    <None Include="Skins\office2007.ssk" />
+    <None Include="Skins\OneBlue.ssk" />
+    <None Include="Skins\OneCyan.ssk" />
+    <None Include="Skins\OneGreen.ssk" />
+    <None Include="Skins\OneOrange.ssk" />
+    <None Include="Skins\Page.ssk" />
+    <None Include="Skins\PageColor1.ssk" />
+    <None Include="Skins\PageColor2.ssk" />
+    <None Include="Skins\RealOne.ssk" />
+    <None Include="Skins\Silver.ssk" />
+    <None Include="Skins\SilverColor1.ssk" />
+    <None Include="Skins\SilverColor2.ssk" />
+    <None Include="Skins\SportsBlack.ssk" />
+    <None Include="Skins\SportsBlue.ssk" />
+    <None Include="Skins\SportsCyan.ssk" />
+    <None Include="Skins\SportsGreen.ssk" />
+    <None Include="Skins\SportsOrange.ssk" />
+    <None Include="Skins\SteelBlack.ssk" />
+    <None Include="Skins\SteelBlue.ssk" />
+    <None Include="Skins\vista1.ssk" />
+    <None Include="Skins\vista1_green.ssk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Skins\Vista2_color1.ssk" />
+    <None Include="Skins\Vista2_color2.ssk" />
+    <None Include="Skins\Vista2_color3.ssk" />
+    <None Include="Skins\Vista2_color4.ssk" />
+    <None Include="Skins\Vista2_color5.ssk" />
+    <None Include="Skins\Vista2_color6.ssk" />
+    <None Include="Skins\Vista2_color7.ssk" />
+    <None Include="Skins\Warm.ssk" />
+    <None Include="Skins\WarmColor1.ssk" />
+    <None Include="Skins\WarmColor2.ssk" />
+    <None Include="Skins\WarmColor3.ssk" />
+    <None Include="Skins\Wave.ssk" />
+    <None Include="Skins\WaveColor1.ssk" />
+    <None Include="Skins\WaveColor2.ssk" />
+    <None Include="Skins\XPBlue.ssk" />
+    <None Include="Skins\XPGreen.ssk" />
+    <None Include="Skins\XPOrange.ssk" />
+    <None Include="Skins\XPSilver.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\back.png" />
+    <None Include="Images\back1.jpg" />
+    <Content Include="Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\material.png" />
+    <Content Include="Images\construction.png" />
+    <Content Include="Images\data.png" />
+    <Content Include="Images\expense.png" />
+    <Content Include="Images\money.png" />
+    <Content Include="Images\exam.png" />
+    <Content Include="Images\notification.png" />
+    <Content Include="Images\tool.png" />
+    <Content Include="Images\pwd.png" />
+    <Content Include="Images\memo.png" />
+    <Content Include="Images\calc.png" />
+    <Content Include="Images\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
