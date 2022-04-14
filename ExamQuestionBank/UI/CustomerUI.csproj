@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A11F258B-AF3F-4F23-B21C-FD16CDA49DE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomerUI</RootNamespace>
+    <AssemblyName>CustomerUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=5.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.5.2.0\lib\net461\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.35\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppHost.cs" />
+    <Compile Include="Base\CustomValidations.cs" />
+    <Compile Include="DBService\QuestionService\AnswerService.cs" />
+    <Compile Include="DBService\QuestionService\CourseService.cs" />
+    <Compile Include="DBService\QuestionService\DisplayQuestionViewService.cs" />
+    <Compile Include="DBService\QuestionService\ExamBankService.cs" />
+    <Compile Include="DBService\QuestionService\GenerateExamContentService.cs" />
+    <Compile Include="DBService\QuestionService\GradeService.cs" />
+    <Compile Include="DBService\QuestionService\QuestionImageService.cs" />
+    <Compile Include="DBService\QuestionService\QuestionItemService.cs" />
+    <Compile Include="DBService\QuestionService\QuestionService.cs" />
+    <Compile Include="DBService\QuestionService\QuestionViewService.cs" />
+    <Compile Include="DBService\QuestionService\SubjectDescriptionService.cs" />
+    <Compile Include="DBService\QuestionService\SubjectService.cs" />
+    <Compile Include="DBService\QuestionService\UserExamService.cs" />
+    <Compile Include="ImageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Authorities.cs" />
+    <Compile Include="Model\BaseEntity.cs" />
+    <Compile Include="Model\FunctionItem.cs" />
+    <Compile Include="Model\ObjEntity.cs" />
+    <Compile Include="Model\QuestionBankModel\Answers.cs" />
+    <Compile Include="Model\QuestionBankModel\Course.cs" />
+    <Compile Include="Model\QuestionBankModel\QuestionDict.cs" />
+    <Compile Include="Model\QuestionBankModel\UserExamResult.cs" />
+    <Compile Include="Model\QuestionBankModel\View\DisplayQuestionView.cs" />
+    <Compile Include="Model\QuestionBankModel\EditQuestionModel.cs" />
+    <Compile Include="Model\QuestionBankModel\ExamBank.cs" />
+    <Compile Include="Model\QuestionBankModel\Grade.cs" />
+    <Compile Include="Model\QuestionBankModel\QuestionDifficulty.cs" />
+    <Compile Include="Model\QuestionBankModel\SubjectDescription.cs" />
+    <Compile Include="Model\QuestionBankModel\Question.cs" />
+    <Compile Include="Model\QuestionBankModel\QuestionImage.cs" />
+    <Compile Include="Model\QuestionBankModel\QuestionItem.cs" />
+    <Compile Include="Model\QuestionBankModel\QuestionType.cs" />
+    <Compile Include="Model\QuestionBankModel\QuestionViewModel.cs" />
+    <Compile Include="Model\QuestionBankModel\Subject.cs" />
+    <Compile Include="Model\QuestionBankModel\SearchItemView.cs" />
+    <Compile Include="Model\QuestionBankModel\UserExam.cs" />
+    <Compile Include="Model\QuestionBankModel\View\DisplayExamBank.cs" />
+    <Compile Include="Model\QuestionBankModel\View\DisplayUserExam.cs" />
+    <Compile Include="Model\QuestionBankModel\View\ExamView.cs" />
+    <Compile Include="Model\QuestionBankModel\View\GenerateExamView.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\QuestionBankModel\UserExamHistory.cs" />
+    <Compile Include="Model\QuestionBankModel\UserExamScore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DBService\CommonService\AuthoritiesService.cs" />
+    <Compile Include="Base\ConvertHelper.cs" />
+    <Compile Include="DBService\CommonService\FunctionItemService.cs" />
+    <Compile Include="DBService\CommonService\UserService.cs" />
+    <Compile Include="UI\BaseForm\FormDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BaseForm\FormDialog.Designer.cs">
+      <DependentUpon>FormDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BaseForm\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BaseForm\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonUI\FrmAuthority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommonUI\FrmAuthority.Designer.cs">
+      <DependentUpon>FrmAuthority.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonUI\FrmFunctionItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommonUI\FrmFunctionItem.Designer.cs">
+      <DependentUpon>FrmFunctionItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonUI\User\FrmEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommonUI\User\FrmEditUser.Designer.cs">
+      <DependentUpon>FrmEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonUI\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommonUI\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommonUI\User\FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommonUI\User\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormDisplayImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormDisplayImage.Designer.cs">
+      <DependentUpon>FormDisplayImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormDisplayScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormDisplayScore.Designer.cs">
+      <DependentUpon>FormDisplayScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\DisplayImagePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\DisplayImagePanel.Designer.cs">
+      <DependentUpon>DisplayImagePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\EassayPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\EassayPanel.Designer.cs">
+      <DependentUpon>EassayPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\EditImagePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\EditImagePanel.Designer.cs">
+      <DependentUpon>EditImagePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\FillBlankPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\FillBlankPanel.Designer.cs">
+      <DependentUpon>FillBlankPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\IQuestionPanel.cs" />
+    <Compile Include="UI\QuestionBank\ControlLib\JudgePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\JudgePanel.Designer.cs">
+      <DependentUpon>JudgePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\MultiSelectWithFivePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\MultiSelectWithFivePanel.Designer.cs">
+      <DependentUpon>MultiSelectWithFivePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\MultiSelectWithSixPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\MultiSelectWithSixPanel.Designer.cs">
+      <DependentUpon>MultiSelectWithSixPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\SingleSelectPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\SingleSelectPanel.Designer.cs">
+      <DependentUpon>SingleSelectPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\WritePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ControlLib\WritePanel.Designer.cs">
+      <DependentUpon>WritePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Grade\FormEditGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Grade\FormEditGrade.Designer.cs">
+      <DependentUpon>FormEditGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormEditQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormEditQuestion.Designer.cs">
+      <DependentUpon>FormEditQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Course\FormCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Course\FormCourse.Designer.cs">
+      <DependentUpon>FormCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Course\FormEditCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Course\FormEditCourse.Designer.cs">
+      <DependentUpon>FormEditCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormAddQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormAddQuestion.Designer.cs">
+      <DependentUpon>FormAddQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\UserExam\FormEditUserExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\UserExam\FormEditUserExam.Designer.cs">
+      <DependentUpon>FormEditUserExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\UserExam\FormCheckExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\UserExam\FormCheckExam.Designer.cs">
+      <DependentUpon>FormCheckExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ExamBank\FormExamBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ExamBank\FormExamBank.Designer.cs">
+      <DependentUpon>FormExamBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Grade\FormGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Grade\FormGrade.Designer.cs">
+      <DependentUpon>FormGrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormManageQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormManageQuestion.Designer.cs">
+      <DependentUpon>FormManageQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormExam.Designer.cs">
+      <DependentUpon>FormExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormSelectExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormSelectExam.Designer.cs">
+      <DependentUpon>FormSelectExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormQuestionImages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormQuestionImages.Designer.cs">
+      <DependentUpon>FormQuestionImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormSubjectDescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\Questions\FormSubjectDescription.Designer.cs">
+      <DependentUpon>FormSubjectDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ExamBank\FormEditExamBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\ExamBank\FormEditExamBank.Designer.cs">
+      <DependentUpon>FormEditExamBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\UserExam\FormManageUserExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\UserExam\FormManageUserExam.Designer.cs">
+      <DependentUpon>FormManageUserExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormUserExamHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\FormUserExamHistory.Designer.cs">
+      <DependentUpon>FormUserExamHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\QuestionBank\WaitFormForGenerateExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\QuestionBank\WaitFormForGenerateExam.Designer.cs">
+      <DependentUpon>WaitFormForGenerateExam.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\BaseForm\FormDialog.resx">
+      <DependentUpon>FormDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BaseForm\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CommonUI\FrmAuthority.resx">
+      <DependentUpon>FrmAuthority.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CommonUI\FrmFunctionItem.resx">
+      <DependentUpon>FrmFunctionItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CommonUI\User\FrmEditUser.resx">
+      <DependentUpon>FrmEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CommonUI\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CommonUI\User\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\FormDisplayImage.resx">
+      <DependentUpon>FormDisplayImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\FormDisplayScore.resx">
+      <DependentUpon>FormDisplayScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\DisplayImagePanel.resx">
+      <DependentUpon>DisplayImagePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\EassayPanel.resx">
+      <DependentUpon>EassayPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\EditImagePanel.resx">
+      <DependentUpon>EditImagePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\FillBlankPanel.resx">
+      <DependentUpon>FillBlankPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\JudgePanel.resx">
+      <DependentUpon>JudgePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\MultiSelectWithFivePanel.resx">
+      <DependentUpon>MultiSelectWithFivePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\MultiSelectWithSixPanel.resx">
+      <DependentUpon>MultiSelectWithSixPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\SingleSelectPanel.resx">
+      <DependentUpon>SingleSelectPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ControlLib\WritePanel.resx">
+      <DependentUpon>WritePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Grade\FormEditGrade.resx">
+      <DependentUpon>FormEditGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Questions\FormEditQuestion.resx">
+      <DependentUpon>FormEditQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Course\FormCourse.resx">
+      <DependentUpon>FormCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Course\FormEditCourse.resx">
+      <DependentUpon>FormEditCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Questions\FormAddQuestion.resx">
+      <DependentUpon>FormAddQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\UserExam\FormEditUserExam.resx">
+      <DependentUpon>FormEditUserExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\UserExam\FormCheckExam.resx">
+      <DependentUpon>FormCheckExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ExamBank\FormExamBank.resx">
+      <DependentUpon>FormExamBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Grade\FormGrade.resx">
+      <DependentUpon>FormGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Questions\FormManageQuestion.resx">
+      <DependentUpon>FormManageQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\FormExam.resx">
+      <DependentUpon>FormExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\FormSelectExam.resx">
+      <DependentUpon>FormSelectExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Questions\FormQuestionImages.resx">
+      <DependentUpon>FormQuestionImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\Questions\FormSubjectDescription.resx">
+      <DependentUpon>FormSubjectDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\ExamBank\FormEditExamBank.resx">
+      <DependentUpon>FormEditExamBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\UserExam\FormManageUserExam.resx">
+      <DependentUpon>FormManageUserExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\FormUserExamHistory.resx">
+      <DependentUpon>FormUserExamHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\QuestionBank\WaitFormForGenerateExam.resx">
+      <DependentUpon>WaitFormForGenerateExam.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CustomerUI.Model.QuestionBankModel.Course.datasource" />
+    <None Include="Properties\DataSources\CustomerUI.Model.QuestionBankModel.DisplayExamBank.datasource" />
+    <None Include="Properties\DataSources\CustomerUI.Model.QuestionBankModel.DisplayQuestionView.datasource" />
+    <None Include="Properties\DataSources\CustomerUI.Model.QuestionBankModel.DisplayUserExam.datasource" />
+    <None Include="Properties\DataSources\CustomerUI.Model.QuestionBankModel.Grade.datasource" />
+    <None Include="Properties\DataSources\CustomerUI.Model.QuestionBankModel.UserExamHistory.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.Authority.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.ColumnName.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.AppendixFile.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.ArchiveMaterial.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.ASupplier.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.BSupplier.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.CompletionMaterial.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.MaterialCost.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.ProcessMaterial.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.StartOperation.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.SubContractCost.datasource" />
+    <None Include="Properties\DataSources\DataService.Model.FileManagementModel.User.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Source\begin_green_16.png" />
+    <Content Include="Source\Image\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonService\CommonService.csproj">
+      <Project>{9C0B63B0-B77E-4F63-8CF2-EAB5CD0BBAC2}</Project>
+      <Name>CommonService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomControl\CustomerControl.csproj">
+      <Project>{6d3804f8-79c1-464e-a49c-03e684d7d5e2}</Project>
+      <Name>CustomerControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataService\DBHelper.csproj">
+      <Project>{d2545998-d626-4ef7-a869-70f2e5349f32}</Project>
+      <Name>DBHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IOCService\IOCService.csproj">
+      <Project>{D40F8259-70EA-49AB-9D8E-D6E6799946B8}</Project>
+      <Name>IOCService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
